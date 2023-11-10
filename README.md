@@ -1,1 +1,2 @@
-# BMELT
+node_modules/*
+.vscode
