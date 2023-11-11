@@ -1,11 +1,16 @@
-<script setup>
-    import Player from './Player.vue';
-</script>
+
 <template>
-    <div class='banner'>
-        <span class='background-letter' id='uimusic'>UIMUSIC</span>
-        <span class='background-letter' id='newway'>NEWWAY</span>
-       <!--  <span class='background-letter'>NEWWAY</span> -->
+    <div class='banner' :class="{jamFilter: playerOn}">
+      
+        <div :class="{runningLetters: playerOn}" class='background-letter' id='uimusic' style="display:flex">
+            <span >UIMUSIC</span>
+            <span >UIMUSIC</span>
+        </div>
+        <div :class="{runningLetters: playerOn}"  class='background-letter' id='newway' style="display:flex">
+            <span>NEWWAY</span>
+            <span >NEWWAY</span>
+        </div>
+       
         <div id='main-content'>
             <h1>
                 PLAY.
@@ -23,19 +28,34 @@
         <div>
             <img id='cover-girl' src='../assets/img/banner-girl.png' alt=''/>
         </div>
-        <Player />
+        <Player :playerOn="playerOn" @handle-player="playSong" />
     </div>
 </template>
+<script setup>
+    import { ref } from 'vue';
+    import Player from './Player.vue';
+    let song = new Audio('lua.mp3')
+    const playerOn = ref(false)
+    const playSong = () =>{
+        handlePlayerOn()
+        song.play()
+    }
+    const handlePlayerOn = () => {
+        playerOn.value = !playerOn.value;
+        
+    }
+    
 
+</script>
 <style scoped>
     /*Background text*/
+
     .background-letter{
         position: absolute;
-        width: 300%;
         font-weight: 800;
         color: rgba(254, 254, 254, 0.07);
         z-index: 1;
-        font-size: 380px;
+        font-size: 380px; 
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -khtml-user-select: none;
@@ -43,7 +63,20 @@
         -ms-user-select: none;
         user-select: none;
     }
-     
+    /* Animation */
+    .runningLetters{
+        animation: slide-left 20s linear infinite;
+    }
+    @keyframes slide-left {
+        from {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+        to {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+    }
     #uimusic{
         top: -15%;
         left: -10%;
@@ -52,19 +85,24 @@
         bottom: -5%;
         left: -10%;
     }
-    /*Banner*/
+   
     .banner, #main-content, #download-content{
         display:flex;
     }
     .banner{
         position: relative;
         width: 90vw;
+        
         z-index: 2;
         align-items: center;
         justify-content: space-around;
         height: 100vh;
     }
-
+    .jamFilter{
+        filter: brightness(50%);
+        background-color: #417B94;
+        box-shadow: 2px 10px 10px 10px #417B94;
+    }
     .banner h1{
         font-size: 170px;
         text-shadow: 0px 4.1504716873168945px 21.897809982299805px rgba(0, 0, 0, 0.39);   

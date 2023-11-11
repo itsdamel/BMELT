@@ -4,8 +4,11 @@
 </script>
 
 <template>
-  <Header />
-  <Banner />
+  <div>
+    <Header />
+    <Banner />
+  </div>
+  
   
 </template>
 

@@ -70,7 +70,7 @@
   .search input::placeholder {
         color: #cccaca;
     }
-  .search > div > input:focus, .search > div > input:not(:placeholder-shown) {
+  .search > div > input:hover, .search > div > input:not(:placeholder-shown) {
         width: 250px;
   }
   

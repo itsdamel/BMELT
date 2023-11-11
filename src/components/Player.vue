@@ -1,6 +1,4 @@
-<script setup>
-    import Line from './Line.vue';
-</script>
+
 <template>
     <div id="player">
         <div id='date'>
@@ -13,18 +11,32 @@
             </div>
             <div id='song-info'>
                 <span>PLAYING NOW</span>
-                <h3>BEYONCE</h3>
-                <p>08. VIRGO'S GROOVE</p>
+                <h3>BRIGHT EYES</h3>
+                <p>02. LUA</p>
             </div>
         </div>
         <div id='controlls'>
-                <img alt='previous' src='../assets/svg/previous-controller.svg'/>
-                <img alt='play' src='../assets/svg/play-controller.svg'/>
-                <img alt='next' src='../assets/svg/next-controller.svg'/>
+            <img alt='previous' src='../assets/svg/previous-controller.svg'/>
+            <img id='play' :class="{spinning: playerOn}" alt='play' @click="handlePlayer" src='../assets/svg/play-controller.svg'/>
+            <img alt='next' src='../assets/svg/next-controller.svg'/>
         </div>
     </div>
 </template>
+
+<script setup>
+   
+    import Line from './Line.vue';
+    const props = defineProps(['playerOn'])
+    const emit = defineEmits(['handle-player'])
+    const handlePlayer = () =>{
+        emit('handle-player') 
+    }    
+  
+    
+</script>
 <style scoped>
+   
+    
     #player{
         display: flex;
         align-items: center;
@@ -89,7 +101,22 @@
         width: 25%;
         display: flex;
         justify-content: space-evenly;
-
         display: flex;
+    }
+    #controlls img{
+        cursor: pointer;
+    }
+    /* animation */
+    .spinning{
+        animation: loading 4s linear infinite;
+    }
+
+    @keyframes loading {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+        transform: rotate(360deg);
+        }   
     }
 </style>
