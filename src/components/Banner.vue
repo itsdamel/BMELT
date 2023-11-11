@@ -34,7 +34,7 @@
 <script setup>
     import { ref } from 'vue';
     import Player from './Player.vue';
-    var song = new Audio('src/assets/songs/lua.mp3');
+    var song = new Audio('src/assets/lua.mp3');
     song.loop = true;
     const playerOn = ref(false)
 
