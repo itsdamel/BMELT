@@ -41,14 +41,10 @@
     const playSong = async () =>{
         handlePlayerOn()
         playerOn.value ? song.play() : song.load() 
-        /* song.addEventListener('ended', ()=>{
-            handlePlayerOn()
-        }) */
-       
+        
     }
     const handlePlayerOn = () => {
-        playerOn.value = !playerOn.value;
-        
+        playerOn.value = !playerOn.value;   
     }
     
 

@@ -7,11 +7,13 @@
         </div>
         <div id='song'>
             <div id='song-cover'>
-
+                
             </div>
             <div id='song-info'>
                 <span>PLAYING NOW</span>
-                <h3>BRIGHT EYES</h3>
+                <a href='https://music.apple.com/br/artist/bright-eyes/6547614' target='_blank'>
+                    BRIGHT EYES
+                </a>
                 <p>02. LUA</p>
             </div>
         </div>
@@ -87,11 +89,14 @@
         -webkit-text-fill-color: transparent;
     }
    
-    #song-info p, #song-info h3{
+    #song-info p, #song-info a{
         font-size: 19px;
         letter-spacing: 2.8px;
     }
-    #song-info h3{
+    #song-info a{
+        display: block;
+        color: #fff;
+        text-decoration: none;
         font-weight: normal;
     } 
     #song-info p{
