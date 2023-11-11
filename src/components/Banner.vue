@@ -93,11 +93,10 @@
     .banner{
         position: relative;
         width: 90vw;
-        
         z-index: 2;
         align-items: center;
         justify-content: space-around;
-        height: 100vh;
+        height: 730px;
     }
     .jamFilter{
         filter: brightness(50%);
