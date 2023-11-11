@@ -16,7 +16,7 @@
                 PLAY.
             </h1>
             <p>
-                Be the first to hear new tracks, connect directly with fellow fans and your favorite artists in real time, and support the future of music with every play, like, repost and comment
+                Be the first to hear new tracks, connect directly with fellow fans and your favorite artists in real time. Support the future of music with every play, like, repost and comment.
             </p>
             <div id='download-content'>
                 <img src='../assets/svg/apple-icon.svg' class='store-icon'/>
