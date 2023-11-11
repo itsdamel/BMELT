@@ -34,11 +34,17 @@
 <script setup>
     import { ref } from 'vue';
     import Player from './Player.vue';
-    let song = new Audio('lua.mp3')
+    var song = new Audio('src/assets/songs/lua.mp3');
+    song.loop = true;
     const playerOn = ref(false)
-    const playSong = () =>{
+
+    const playSong = async () =>{
         handlePlayerOn()
-        song.play()
+        playerOn.value ? song.play() : song.load() 
+        /* song.addEventListener('ended', ()=>{
+            handlePlayerOn()
+        }) */
+       
     }
     const handlePlayerOn = () => {
         playerOn.value = !playerOn.value;
@@ -49,7 +55,6 @@
 </script>
 <style scoped>
     /*Background text*/
-
     .background-letter{
         position: absolute;
         font-weight: 800;
@@ -65,7 +70,7 @@
     }
     /* Animation */
     .runningLetters{
-        animation: slide-left 20s linear infinite;
+        animation: slide-left 40s linear infinite;
     }
     @keyframes slide-left {
         from {
@@ -100,8 +105,9 @@
     }
     .jamFilter{
         filter: brightness(50%);
+        width: 100vw;
         background-color: #417B94;
-        box-shadow: 2px 10px 10px 10px #417B94;
+
     }
     .banner h1{
         font-size: 170px;
